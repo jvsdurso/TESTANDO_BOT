@@ -1,22 +1,18 @@
+import collections
+import hashlib
+import hmac
+import json
 import logging
-import requests
+import threading
 import time
 import typing
-import collections
-
 from urllib.parse import urlencode
 
-import hmac
-import hashlib
-
+import requests
 import websocket
-import json
-
-import threading
 
 from models import *
-from strategies import TechnicalStrategy, BreakoutStrategy
-
+from strategies import BreakoutStrategy, TechnicalStrategy
 
 logger = logging.getLogger()
 
@@ -223,7 +219,7 @@ class BinanceClient:
         balances = dict()
 
         if self.futures:
-            account_data = self._make_request("GET", "/fapi/v1/account", data)
+            account_data = self._make_request("GET", "/fapi/v2/account", data)
         else:
             account_data = self._make_request("GET", "/api/v3/account", data)
 
