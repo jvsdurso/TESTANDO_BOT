@@ -2,6 +2,7 @@ import logging
 
 from connectors.binance import BinanceClient
 from connectors.bitmex import BitmexClient
+from interface.input_keys_window import get_api_keys
 from interface.root_component import Root
 
 # Create and configure the logger object
@@ -25,11 +26,10 @@ logger.addHandler(file_handler)
 
 if __name__ == '__main__':  # Execute the following code only when executing main.py (not when importing it)
 
-    binance = BinanceClient("8d0922c254c066f9325a2dc6acdb82ccbd1c108cdcd0d1fa9e2a193deef06892",
-                            "a86579e0a1ef79d25380986ba179edb44f821bf3165fd99b0dcaff5deb963e55",
-                            testnet=True, futures=True)
-
-    bitmex = BitmexClient("q4m3msIRvLyN3PcO7SqCMSf4", "giwHvf3Qg_o7aQ7U8Bkue_Fv2BOb6mFqkyq0CXihyX9v5-pJ", testnet=True)
+    binance_keys, bitmex_keys = get_api_keys()
+    
+    binance = BinanceClient(binance_keys[0], binance_keys[1], testnet=True, futures=True)
+    bitmex = BitmexClient(bitmex_keys[0], bitmex_keys[1], testnet=True)
 
     root = Root(binance, bitmex)
     root.mainloop()
