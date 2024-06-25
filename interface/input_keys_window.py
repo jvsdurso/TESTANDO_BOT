@@ -115,4 +115,3 @@ def get_api_keys():
     app = InputKeysWindow(root)
     root.mainloop()
     return app.binance_keys, app.bitmex_keys
-

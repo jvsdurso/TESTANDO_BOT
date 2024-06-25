@@ -1,17 +1,15 @@
+import json
+import logging
 import tkinter as tk
 from tkinter.messagebox import askquestion
-import logging
-import json
 
-from connectors.bitmex import BitmexClient
 from connectors.binance import BinanceClient
-
-from interface.styling import *
+from connectors.bitmex import BitmexClient
 from interface.logging_component import Logging
-from interface.watchlist_component import Watchlist
-from interface.trades_component import TradesWatch
 from interface.strategy_component import StrategyEditor
-
+from interface.styling import *
+from interface.trades_component import TradesWatch
+from interface.watchlist_component import Watchlist
 
 logger = logging.getLogger()  # This will be the same logger object as the one configured in main.py
 
@@ -231,28 +229,3 @@ class Root(tk.Tk):
         self._strategy_frame.db.save("strategies", strategies)
 
         self.logging_frame.add_log("Workspace saved")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

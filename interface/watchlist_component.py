@@ -1,13 +1,11 @@
 import tkinter as tk
 import typing
 
-from models import *
-
-from interface.styling import *
+from database import WorkspaceData
 from interface.autocomplete_widget import Autocomplete
 from interface.scrollable_frame import ScrollableFrame
-
-from database import WorkspaceData
+from interface.styling import *
+from models import *
 
 
 class Watchlist(tk.Frame):
@@ -133,4 +131,3 @@ class Watchlist(tk.Frame):
         self.body_widgets['remove'][b_index].grid(row=b_index, column=4)
 
         self._body_index += 1
-

@@ -1,11 +1,10 @@
+import datetime
 import tkinter as tk
 import typing
-import datetime
 
-from models import *
-
-from interface.styling import *
 from interface.scrollable_frame import ScrollableFrame
+from interface.styling import *
+from models import *
 
 
 class TradesWatch(tk.Frame):
@@ -114,15 +113,3 @@ class TradesWatch(tk.Frame):
         self.body_widgets['pnl'][t_index].grid(row=b_index, column=7)
 
         self._body_index += 1
-
-
-
-
-
-
-
-
-
-
-
-
